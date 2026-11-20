@@ -1,0 +1,121 @@
+:root{
+  --noir:#000;
+  --noir-2:#060a14;
+  --bleu:#2f6bff;
+  --bleu-clair:#4cc2ff;
+  --bleu-fonce:#0b1d4d;
+  --texte:#e8eefc;
+  --texte-doux:#8c9bbd;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--noir);color:var(--texte);font-family:'Sora',system-ui,sans-serif;line-height:1.7}
+#reseau{position:fixed;inset:0;z-index:0;width:100%;height:100%}
+main,header,footer{position:relative;z-index:1}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--bleu-fonce)}
+.logo{color:var(--bleu-clair);font-weight:800;text-decoration:none;font-size:1.1rem}
+.nav nav{display:flex;gap:1.6rem;flex-wrap:wrap}
+.nav nav a{color:var(--texte-doux);text-decoration:none;font-size:.92rem;padding:.2rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav nav a:hover,.nav nav a.actif{color:var(--texte);border-color:var(--bleu)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:6rem 5vw 3rem;max-width:1100px;margin:auto}
+.hello{color:var(--bleu-clair);margin-bottom:.5rem}
+.hero h1{font-size:clamp(2.2rem,6vw,4.6rem);font-weight:800;line-height:1.1;margin-bottom:1.2rem}
+#typing{color:var(--bleu);text-shadow:0 0 30px rgba(47,107,255,.6)}
+.intro{max-width:52ch;color:var(--texte-doux);margin-bottom:2rem}
+.btn{display:inline-block;padding:.85rem 1.8rem;border:1px solid var(--bleu);color:var(--texte);text-decoration:none;border-radius:6px;background:linear-gradient(90deg,var(--bleu),#1646c9);transition:box-shadow .3s,transform .3s}
+.btn:hover{box-shadow:0 0 28px rgba(47,107,255,.7);transform:translateY(-2px)}
+
+.bloc{max-width:1100px;margin:auto;padding:5rem 5vw}
+.bloc h2{font-size:clamp(1.5rem,3.2vw,2.2rem);margin-bottom:1.5rem;padding-left:1rem;border-left:4px solid var(--bleu)}
+.sous{color:var(--texte-doux);margin-bottom:1.5rem;max-width:70ch}
+code{background:var(--bleu-fonce);padding:.1rem .4rem;border-radius:4px;color:var(--bleu-clair)}
+
+.duo,.grille{display:grid;gap:1.2rem}
+.duo{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grille{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.carte{background:var(--noir-2);border:1px solid var(--bleu-fonce);border-radius:10px;padding:1.5rem;transition:border-color .25s,transform .25s,box-shadow .25s}
+.carte:hover{border-color:var(--bleu);transform:translateY(-4px);box-shadow:0 8px 30px rgba(47,107,255,.2)}
+.carte h3{color:var(--bleu-clair);margin-bottom:.5rem;font-size:1.1rem}
+.carte p{color:var(--texte-doux);font-size:.93rem;margin-bottom:.6rem}
+.carte ul{padding-left:1.1rem;color:var(--texte-doux);font-size:.9rem}
+
+.pdf-liens{display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
+.pdf-liens a{font-size:.85rem;padding:.4rem .9rem;border-radius:5px;text-decoration:none;border:1px solid var(--bleu);color:var(--texte);transition:background .2s}
+.pdf-liens a:first-child{background:var(--bleu)}
+.pdf-liens a:hover{background:#1646c9}
+.tag{display:inline-block;font-size:.75rem;color:var(--bleu-clair);border:1px solid var(--bleu-fonce);border-radius:20px;padding:.05rem .7rem;margin-bottom:.6rem}
+
+.onglets{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.onglets button{font:inherit;font-size:.9rem;padding:.55rem 1.1rem;background:transparent;color:var(--texte-doux);border:1px solid var(--bleu-fonce);border-radius:6px;cursor:pointer;transition:all .2s}
+.onglets button:hover{color:var(--texte);border-color:var(--bleu)}
+.onglets button.actif{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+.panneau{animation:entree .35s ease}
+@keyframes entree{from{opacity:0;transform:translateY(8px)}}
+
+footer{text-align:center;padding:2.5rem;color:var(--texte-doux);border-top:1px solid var(--bleu-fonce);background:var(--noir)}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--bleu-clair);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:700px){.nav{flex-direction:column;gap:.4rem}.hero{padding-top:8rem}}
+
+/* Veille technologique */
+.methode{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.etape{border-top:2px solid var(--bleu);padding-top:.8rem}
+.etape h4{color:var(--texte);margin:.4rem 0 .2rem;font-size:1rem}
+.etape p{color:var(--texte-doux);font-size:.88rem}
+.num{display:inline-flex;width:1.8rem;height:1.8rem;align-items:center;justify-content:center;border-radius:50%;background:var(--bleu);color:#fff;font-size:.85rem;font-weight:600}
+.sujet h3{font-size:1.5rem;color:var(--texte);margin-bottom:.4rem}
+.resume{color:var(--bleu-clair);margin-bottom:1rem}
+.sujet h4{color:var(--bleu-clair);font-size:1.05rem;margin:2rem 0 .7rem}
+.sujet > p{color:var(--texte-doux);max-width:75ch}
+.sources{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.8rem}
+.source{display:flex;flex-direction:column;gap:.15rem;padding:.9rem 1rem;background:var(--noir-2);border:1px solid var(--bleu-fonce);border-radius:8px;text-decoration:none;color:var(--texte);transition:border-color .2s,transform .2s}
+.source:hover{border-color:var(--bleu);transform:translateY(-3px)}
+.source span{color:var(--texte-doux);font-size:.8rem}
+.frise{border-left:2px solid var(--bleu-fonce);margin-left:.4rem}
+.evenement{position:relative;padding:0 0 1.5rem 1.6rem}
+.evenement::before{content:"";position:absolute;left:-7px;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--bleu);box-shadow:0 0 12px var(--bleu)}
+.evenement time{color:var(--bleu-clair);font-size:.82rem}
+.evenement h5{font-size:1.02rem;margin:.1rem 0 .3rem}
+.evenement p{color:var(--texte-doux);font-size:.92rem;max-width:75ch}
+.evenement a{color:var(--bleu-clair);font-size:.85rem}
+.sujet .duo{margin-top:1.5rem}
+
+/* ---------- Multi-pages ---------- */
+body{animation:fondu .5s ease}
+@keyframes fondu{from{opacity:0}}
+body.sortie{opacity:0;transition:opacity .25s ease}
+
+.page-top{padding-top:8rem;min-height:80vh}
+.retour{margin-top:3rem}
+.retour a{color:var(--texte-doux);text-decoration:none;transition:color .2s}
+.retour a:hover{color:var(--bleu-clair)}
+
+.accueil-cartes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.carte-lien{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.carte-lien h3{font-size:1.3rem}
+.carte-lien p{flex:1}
+.fleche{color:var(--bleu-clair);font-size:.9rem;transition:transform .25s}
+.carte-lien:hover .fleche{transform:translateX(6px)}
+
+/* Onglets de veille (liens) */
+.onglets a{font:inherit;font-size:.9rem;padding:.55rem 1.1rem;background:transparent;color:var(--texte-doux);border:1px solid var(--bleu-fonce);border-radius:6px;text-decoration:none;transition:all .2s}
+.onglets a:hover{color:var(--texte);border-color:var(--bleu)}
+.onglets a.actif{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+
+/* ---------- E5 : synthèse + liste de projets ---------- */
+.sous-titre{font-size:1.15rem;color:var(--texte);margin-bottom:1rem;font-weight:600}
+.separateur{border:0;border-top:1px solid var(--bleu-fonce);margin:2.5rem 0}
+.liste-projets{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.ligne-projet,.carte-synthese{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:var(--noir-2);border:1px solid var(--bleu-fonce);border-radius:10px;padding:1rem 1.4rem;transition:border-color .25s,box-shadow .25s}
+.ligne-projet:hover,.carte-synthese:hover{border-color:var(--bleu);box-shadow:0 8px 30px rgba(47,107,255,.2)}
+.carte-synthese{transform:none!important;border-color:var(--bleu)}
+.ligne-texte{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.ligne-texte .tag{margin-bottom:.2rem}
+.ligne-texte h3{color:var(--bleu-clair);font-size:1.05rem;margin:0}
+.ligne-texte p{color:var(--texte-doux);font-size:.9rem;margin:.2rem 0 0}
+.ligne-projet .pdf-liens,.carte-synthese .pdf-liens{margin-top:0}
